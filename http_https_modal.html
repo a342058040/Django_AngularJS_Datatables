@@ -1,0 +1,45 @@
+<div>
+        <button type="button" class="close" ng-click="close()"
+            data-dismiss="modal" aria-hidden="true">
+        &times;
+    </button>
+    <span style="font-size: 18px;font-weight: bold">失败详细信息：</span>
+    <hr>
+</div>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">申请人：</label>
+
+        <div class="col-sm-8">
+            <p class="form-control-static">{$ username $}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">group_id：</label>
+
+        <div class="col-sm-8">
+            <p class="form-control-static">{$ groupid $}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">激活VS：</label>
+
+        <div class="col-sm-8">
+            <p class="form-control-static">{$ obj_1.status_active_Bind.status_group_content $}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">绑定：</label>
+
+        <div class="col-sm-8">
+            <p class="form-control-static">{$ obj_1.status_bind.content_status_bind $}</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">激活绑定：</label>
+
+        <div class="col-sm-8">
+            <p class="form-control-static">{$ obj_1.status_active_vs.content_vsId_status $}</p>
+        </div>
+    </div>
+</form>

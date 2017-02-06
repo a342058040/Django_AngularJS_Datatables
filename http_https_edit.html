@@ -1,0 +1,87 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()"
+            data-dismiss="modal" aria-hidden="true">
+        &times;
+    </button>
+    <h4 class="modal-title">
+        双入口申请记录编辑
+    </h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">ID</label>
+
+            <div class="col-sm-10">
+                <p class="form-control-static" ng-bind="this_http_https.id"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">申请人</label>
+
+            <div class="col-sm-10">
+                <p class="form-control-static" ng-bind="this_http_https.username"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">ENV</label>
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_http_https.env">
+                <select class="form-control" ng-model="this_http_https.env">
+                    <option>UAT</option>
+                    <option>FAT</option>
+                    <option>FWS</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">group-id</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_http_https.groupid">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">激活vs</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_http_https.status_active_vs">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">绑定</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_http_https.status_bind">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">激活绑定</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_http_https.status_active_Bind">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">最终状态</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_http_https.status">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="http_https_edit_submit()">
+        提交更改
+    </button>
+    <button type="reset" class="btn btn-info"  ng-click="http_https_delete_submit(this_http_https.id)">删除该记录
+    </button>
+    <button type="button" class="btn btn-default" ng-click="close()"
+            data-dismiss="modal">关闭
+    </button>
+</div>

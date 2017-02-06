@@ -1,0 +1,136 @@
+<div class="page-title">
+    <h3 class="title"></h3>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Http和Https双入口申请</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" style="margin-top: 30px;margin-bottom: 30px">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">环境</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control" ng-model="external_route_env"
+                                            ng-change="gateway_env_change()"
+                                           >
+                                        <option value="UAT">
+                                            UAT
+                                        </option>
+                                        <option value="FAT">
+                                            FAT/FWS
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!--<div class="col-sm-4" ng-show="https_http_subenv_show">-->
+                                    <!--<label class="col-sm-2 control-label">子环境</label>-->
+                                      <!--<ui-select  class="col-sm-5" ng-model="https_http_subenv">-->
+                                        <!--<ui-select-match>-->
+                                            <!--<span ng-bind="$select.selected.name"></span>-->
+                                        <!--</ui-select-match>-->
+                                        <!--<ui-select-choices-->
+                                                <!--repeat="item in (https_http_subenv_list | filter: $select.search) track by item.id">-->
+                                            <!--<span ng-bind="item.name"></span>-->
+                                        <!--</ui-select-choices>-->
+                                    <!--</ui-select>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" ng-bind="env_appid_domain_lable">Appid/Domain</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" maxlength="60" placeholder="{$env_appid_domain_lable$}"
+                                           ng-model="external_route_appid_domain">
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="button" ng-click="search_group()" class="btn btn-success">搜索
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">
+                                    待操作的Group
+                                </label>
+                                <div class="col-sm-7">
+                                    <ui-select ng-model="external_route_group" ng-change="route_group_https_change(external_route_group)">
+                                        <ui-select-match>
+                                            <span ng-bind="$select.selected.name"></span>
+                                        </ui-select-match>
+                                        <ui-select-choices
+                                                repeat="item in (route_group_list_single_route | filter: $select.search) track by item.id">
+                                            <span ng-bind="item.name"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="fat_https_domain_div_show">
+                                <label class="col-sm-3 control-label">Domain</label>
+                                <div class="col-sm-5">
+                                    <div class="input-group m-t-10">
+                                        <input type="text" class="form-control" maxlength="60"
+                                               placeholder="请输入域名,例：qatetest.fat10"
+                                               ng-model="fat_https_domain">
+                                        <span class="input-group-addon">.xxxxxxxxxxxxxxx.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="group_info_show">
+                                <label class="col-sm-3 control-label">
+                                    所有Group信息
+                                </label>
+                                <div class="col-sm-7">
+                                    <table class="table table-bordered  table-hover">
+                                        <thead></thead>
+                                        <tbody>
+                                        <tr ng-repeat="g in groups_http_https">
+                                            <td ng-bind="g.name"></td>
+                                            <td ng-bind="g.htt_status"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                              <!--<div class="form-group">-->
+                                <!--<label class="col-sm-3 control-label">申请理由<span></span></label>-->
+
+                                <!--<div class="col-sm-7">-->
+                                    <!--<input type="text" class="form-control" maxlength="60" placeholder="请填写申请双入口原因"-->
+                                           <!--ng-model="external_route_reason">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <div class="form-group">
+                                <button style="float: right;margin-right: 200px" type="button" ng-disabled="http_https_button"
+                                        ng-click="external_route_apply()"
+                                        class="btn btn-success">提交
+                                </button>
+                            </div>
+                        </form>
+                        <hr/>
+                            <div class="panel-title" style="font-size:13px;float: left">
+                                <ul>
+                                    <li>1.UAT环境支持AppId两种申请方式
+                                        <ul>
+                                            <li>1.1 域名方式：对该域名下所有单入口的Group做双入口处理</li>
+                                            <li>1.2 AppId方式：对AppId下选定的Group做双入口处理</li>
+                                        </ul>
+                                    </li>
+                                    <br/>
+                                    <li>2.FAT/FWS 环境仅支持AppId申请方式
+                                        <ul>
+                                            <li>2.1 单入口（ HTTP）：选定AppId下的某个Group，需要提供站点的访问域名，对该Group做双入口处理</li>
+                                            <li>2.2 单入口（HTTPS）：选定AppId下的某个Group，对该Group做双入口处理</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

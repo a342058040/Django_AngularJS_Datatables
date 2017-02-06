@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()"
+            data-dismiss="modal" aria-hidden="true">
+        &times;
+    </button>
+    <h4 class="modal-title">
+        网段使用情况信息记录
+    </h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">ID</label>
+
+            <div class="col-sm-10">
+                <p class="form-control-static" ng-bind="this_network_segment.id"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">网段</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_network_segment.network_segment">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">描述</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_network_segment.description">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">网关</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_network_segment.gateway">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">掩码</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_network_segment.mask">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">IP地址范围</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" ng-model="this_network_segment.ip_adress_range">
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="network_segment_edit_submit()">
+        提交更改
+    </button>
+    <button type="reset" class="btn btn-info"  ng-click="network_segment_delete_submit(this_network_segment.id)">删除该记录
+    </button>
+    <button type="button" class="btn btn-default" ng-click="close()"
+            data-dismiss="modal">关闭
+    </button>
+</div>
