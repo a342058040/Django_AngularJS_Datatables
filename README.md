@@ -1,0 +1,2 @@
+# Django_AngularJS_Datatables
+Django和AngularJS以及Datatables结合实现前后端分离
